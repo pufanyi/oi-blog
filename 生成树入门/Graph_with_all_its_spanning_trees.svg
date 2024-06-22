@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="412.5" height="270px" viewBox="0 0 550 360" enable-background="new 0 0 550 360" xml:space="preserve">
+<g transform="scale(1.4) translate(-40,-40)">
+	<g transform="translate(30,30)">
+		<path fill="none" stroke="#000000" stroke-width="5" d="M61.1,64.3h150v150h-150V64.3 M211.1,64.3l-150,150"/>
+	</g>
+	<g transform="translate(50,50)">
+		<g>
+			<circle id="s1" fill="#FFFFFF" stroke="#000000" stroke-width="3" cx="41.1" cy="44.3" r="30"/>
+		</g>
+		<text transform="matrix(0.7143 0 0 0.7143 31.0616 54.2861)" font-family="'Helvetica'" font-size="50.4">1</text>
+	</g>
+	<g transform="translate(200,50)">
+		<g>
+			<circle id="s1_1_" fill="#FFFFFF" stroke="#000000" stroke-width="3" cx="41.1" cy="44.3" r="30"/>
+		</g>
+		<text transform="matrix(0.7143 0 0 0.7143 31.0616 54.2861)" font-family="'Helvetica'" font-size="50.4">2</text>
+	</g>
+	<g transform="translate(50,200)">
+		<g>
+			<circle id="s1_2_" fill="#FFFFFF" stroke="#000000" stroke-width="3" cx="41.1" cy="44.3" r="30"/>
+		</g>
+		<text transform="matrix(0.7143 0 0 0.7143 31.0616 54.2857)" font-family="'Helvetica'" font-size="50.4">3</text>
+	</g>
+	<g transform="translate(200,200)">
+		<g>
+			<circle id="s1_3_" fill="#FFFFFF" stroke="#000000" stroke-width="3" cx="41.1" cy="44.3" r="30"/>
+		</g>
+		<text transform="matrix(0.7143 0 0 0.7143 31.0616 54.2857)" font-family="'Helvetica'" font-size="50.4">4</text>
+	</g>
+</g>
+<g transform="translate(60,-45)">
+	<g transform="translate(300,50)">
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,30v50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,30h50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M75.5,30v50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,80h50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,80l50-50"/>
+		<g>
+			<g id="fournodes">
+				<circle stroke="#000000" cx="25.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="25.5" cy="80" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="80" r="5"/>
+			</g>
+		</g>
+	</g>
+	<g transform="translate(380,50)">
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,30v50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,30h50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M75.5,30v50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,80h50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,80l50-50"/>
+		<g>
+			<g id="fournodes_1_">
+				<circle stroke="#000000" cx="25.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="25.5" cy="80" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="80" r="5"/>
+			</g>
+		</g>
+	</g>
+	<g transform="translate(300,130)">
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,30v50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,30h50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M75.5,30v50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,80h50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,80l50-50"/>
+		<g>
+			<g id="fournodes_2_">
+				<circle stroke="#000000" cx="25.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="25.5" cy="80" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="80" r="5"/>
+			</g>
+		</g>
+	</g>
+	<g transform="translate(380,130)">
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,30v50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,30h50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M75.5,30v50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,80h50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,80l50-50"/>
+		<g>
+			<g id="fournodes_3_">
+				<circle stroke="#000000" cx="25.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="25.5" cy="80" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="80" r="5"/>
+			</g>
+		</g>
+	</g>
+	<g transform="translate(300,210)">
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,30v50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,30h50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M75.5,30v50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,80h50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,80l50-50"/>
+		<g>
+			<g id="fournodes_4_">
+				<circle stroke="#000000" cx="25.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="25.5" cy="80" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="80" r="5"/>
+			</g>
+		</g>
+	</g>
+	<g transform="translate(380,210)">
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,30v50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,30h50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M75.5,30v50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,80h50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,80l50-50"/>
+		<g>
+			<g id="fournodes_5_">
+				<circle stroke="#000000" cx="25.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="25.5" cy="80" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="80" r="5"/>
+			</g>
+		</g>
+	</g>
+	<g transform="translate(300,290)">
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,30v50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,30h50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M75.5,30v50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,80h50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,80l50-50"/>
+		<g>
+			<g id="fournodes_6_">
+				<circle stroke="#000000" cx="25.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="25.5" cy="80" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="80" r="5"/>
+			</g>
+		</g>
+	</g>
+	<g transform="translate(380,290)">
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,30v50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,30h50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M75.5,30v50"/>
+		<path fill="none" stroke="#D3D3D3" stroke-width="5" d="M25.5,80h50"/>
+		<path fill="none" stroke="#FFA500" stroke-width="5" d="M25.5,80l50-50"/>
+		<g>
+			<g id="fournodes_7_">
+				<circle stroke="#000000" cx="25.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="25.5" cy="80" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="30" r="5"/>
+				<circle stroke="#000000" cx="75.5" cy="80" r="5"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

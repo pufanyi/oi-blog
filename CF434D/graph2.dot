@@ -1,0 +1,15 @@
+digraph flow {
+    "dot1","dot4"[label="...", color="red"];
+    "dot2","dot3"[label="..."];
+	"(u,x)","(u,x+1)","(v,x-d+1)","(v,x-d+2)"[color="red"];
+
+    "dot1"->"(u,x)"->"(u,x+1)"[color="red"];
+	"(u,x+1)"->"(u,x+2)"[color="green",label="(cut)"];
+	"(u,x+2)"->"dot2";
+    "dot3"->"(v,x-d)";
+	"(v,x-d)"->"(v,x-d+1)"[color="green",label="(cut)"];
+	"(v,x-d+1)"->"(v,x-d+2)"->"dot4"[color="red"];
+    "(u,x)"->"(v,x-d)"[label="inf"];
+    "(u,x+1)"->"(v,x-d+1)"[label="inf", color="red"];
+    "(u,x+2)"->"(v,x-d+2)"[label="inf"];
+}

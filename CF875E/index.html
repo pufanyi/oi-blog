@@ -1,0 +1,750 @@
+<!DOCTYPE html><html lang="en"><head hexo-theme="https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0.alpha.2"><meta name="generator" content="Hexo 6.3.0"><meta charset="utf-8"><link rel="canonical" href="https://pufanyi.github.io/oi-blog/cf875e/"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><meta name="renderer" content="webkit"><meta name="force-rendering" content="webkit"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta name="HandheldFriendly" content="True"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5"><meta content="PuFanyi&#39;s Blog" name="application-name"><meta content="PuFanyi&#39;s Blog" name="apple-mobile-web-app-title"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><link rel="preload" href="/oi-blog/css/style.css?time=1719083826325" as="style"><title>CodeForces 875E Delivery Club - PuFanyi's Blog</title><meta name="keywords" content="CodeForces,贪心,二分,null"><meta name="description" content="有两个快递员，分别在s1,s2(0≤s1,s2≤109)s_1, s_2(0\le s_1,s_2\le 10^9)s1​,s2​(0≤s1​,s2​≤109)，现在有n(1≤n≤100000)n(1\le n\le 100000)n(1≤n≤100000)个任务，每个任务xix_ixi​表示要将货物送到xix_ixi​，让任何一个快递员到xix_ixi​都可以。由于快递员之间需要有对讲机联系，请"><meta property="og:type" content="article"><meta property="og:title" content="CodeForces 875E Delivery Club"><meta property="og:url" content="https://pufanyi.github.io/oi-blog/CF875E/index.html"><meta property="og:site_name" content="PuFanyi&#39;s Blog"><meta property="og:description" content="有两个快递员，分别在s1,s2(0≤s1,s2≤109)s_1, s_2(0\le s_1,s_2\le 10^9)s1​,s2​(0≤s1​,s2​≤109)，现在有n(1≤n≤100000)n(1\le n\le 100000)n(1≤n≤100000)个任务，每个任务xix_ixi​表示要将货物送到xix_ixi​，让任何一个快递员到xix_ixi​都可以。由于快递员之间需要有对讲机联系，请"><meta property="og:locale" content="en_US"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"><meta property="article:published_time" content="2019-01-11T16:00:00.000Z"><meta property="article:modified_time" content="2023-12-25T16:08:27.883Z"><meta property="article:author" content="pufanyi"><meta property="article:tag" content="CodeForces"><meta property="article:tag" content="贪心"><meta property="article:tag" content="二分"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"><link rel="alternate" href="/oi-blog/atom.xml" title="PuFanyi's Blog" type="application/atom+xml"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css" integrity="sha384-Xi8rHCmBmhbuyyhbI88391ZKP2dmfnOl4rT9ZfRI7mLTdk1wblIUnrIq35nqwEvC" crossorigin="anonymous"><style>#safearea{display:none}.post-story+.post-story,.post-wrapper+.post-wrapper,article+article{content-visibility:auto;contain-intrinsic-size:10px 500px}:root{--color-site-body:#f4f4f4;--color-site-bg:#f4f4f4;--color-site-inner:#fff;--color-site-footer:#666;--color-card:#fff;--color-text:#444;--color-block:#f6f6f6;--color-inlinecode:#c74f00;--color-codeblock:#fff7ea;--color-h1:#3a3a3a;--color-h2:#3a3a3a;--color-h3:#333;--color-h4:#444;--color-h5:#555;--color-h6:#666;--color-p:#444;--color-list:#666;--color-list-hl:#36ac91;--color-meta:#888;--color-read-bkg:#e0d8c8;--color-read-post:#f8f1e2}*{box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;outline:0;margin:0;padding:0}html{color:var(--color-text);width:100%;height:100%;font-family:UbuntuMono,"Varela Round","PingFang SC","Microsoft YaHei",Helvetica,Arial,Menlo,Monaco,monospace,sans-serif;font-size:16px}html>::-webkit-scrollbar{height:4px;width:4px}html>::-webkit-scrollbar-track-piece{background:0 0}html>::-webkit-scrollbar-thumb{background:#44d7b6;cursor:pointer;border-radius:2px;-webkit-border-radius:2px}html>::-webkit-scrollbar-thumb:hover{background:#ff5722}body{background-color:var(--color-site-body);text-rendering:optimizelegibility;-webkit-tap-highlight-color:transparent;line-height:1.6;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body.modal-active{overflow:hidden}@media screen and (max-width:680px){body.modal-active{position:fixed;top:0;right:0;bottom:0;left:0}}a{color:#1b79c4;cursor:pointer;text-decoration:none;transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease}a:hover{color:#ff5722}a:active,a:hover{outline:0}ol,ul{padding-left:0}ol li,ul li{list-style:none}header{display:-webkit-box;display:-moz-box;display:block}img{border:0;background:0 0;max-width:100%}svg:not(:root){overflow:hidden}hr{-moz-box-sizing:content-box;box-sizing:content-box;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;height:0;border:0;border-radius:1px;-webkit-border-radius:1px;border-bottom:1px solid rgba(68,68,68,.1)}button,input{color:inherit;font:inherit;margin:0}button{overflow:visible;text-transform:none;-webkit-appearance:button;cursor:pointer}@supports (backdrop-filter:blur(20px)){.blur{background:rgba(255,255,255,.9)!important;backdrop-filter:saturate(200%) blur(20px)}}.shadow{box-shadow:0 1px 2px 0 rgba(0,0,0,.1);-webkit-box-shadow:0 1px 2px 0 rgba(0,0,0,.1)}.shadow.floatable{transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease}.shadow.floatable:hover{box-shadow:0 2px 4px 0 rgba(0,0,0,.1),0 4px 8px 0 rgba(0,0,0,.1),0 8px 16px 0 rgba(0,0,0,.1);-webkit-box-shadow:0 2px 4px 0 rgba(0,0,0,.1),0 4px 8px 0 rgba(0,0,0,.1),0 8px 16px 0 rgba(0,0,0,.1)}#l_cover{min-height:64px}.cover-wrapper{top:0;left:0;max-width:100%;height:100vh;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex;flex-wrap:nowrap;-webkit-flex-wrap:nowrap;-khtml-flex-wrap:nowrap;-moz-flex-wrap:nowrap;-o-flex-wrap:nowrap;-ms-flex-wrap:nowrap;-webkit-box-direction:normal;-moz-box-direction:normal;-webkit-box-orient:vertical;-moz-box-orient:vertical;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;align-items:center;align-self:center;align-content:center;color:var(--color-site-inner);padding:0 16px;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;position:relative;overflow:hidden;margin-bottom:-100px}.cover-wrapper .cover-bg{position:absolute;width:100%;height:100%;background-position:center;background-size:cover;-webkit-background-size:cover;-moz-background-size:cover}.cover-wrapper .cover-bg.lazyload:not(.loaded){opacity:0;-webkit-opacity:0;-moz-opacity:0}.cover-wrapper .cover-bg.lazyload.loaded{animation-delay:0s;animation-duration:.5s;animation-fill-mode:forwards;animation-timing-function:ease-out;animation-name:fadeIn}@-moz-keyframes fadeIn{0%{opacity:0;-webkit-opacity:0;-moz-opacity:0;filter:blur(12px);transform:scale(1.02);-webkit-transform:scale(1.02);-khtml-transform:scale(1.02);-moz-transform:scale(1.02);-o-transform:scale(1.02);-ms-transform:scale(1.02)}100%{opacity:1;-webkit-opacity:1;-moz-opacity:1}}@-webkit-keyframes fadeIn{0%{opacity:0;-webkit-opacity:0;-moz-opacity:0;filter:blur(12px);transform:scale(1.02);-webkit-transform:scale(1.02);-khtml-transform:scale(1.02);-moz-transform:scale(1.02);-o-transform:scale(1.02);-ms-transform:scale(1.02)}100%{opacity:1;-webkit-opacity:1;-moz-opacity:1}}@-o-keyframes fadeIn{0%{opacity:0;-webkit-opacity:0;-moz-opacity:0;filter:blur(12px);transform:scale(1.02);-webkit-transform:scale(1.02);-khtml-transform:scale(1.02);-moz-transform:scale(1.02);-o-transform:scale(1.02);-ms-transform:scale(1.02)}100%{opacity:1;-webkit-opacity:1;-moz-opacity:1}}@keyframes fadeIn{0%{opacity:0;-webkit-opacity:0;-moz-opacity:0;filter:blur(12px);transform:scale(1.02);-webkit-transform:scale(1.02);-khtml-transform:scale(1.02);-moz-transform:scale(1.02);-o-transform:scale(1.02);-ms-transform:scale(1.02)}100%{opacity:1;-webkit-opacity:1;-moz-opacity:1}}.cover-wrapper .cover-body{z-index:1;position:relative;width:100%;height:100%}.cover-wrapper#full{height:calc(100vh + 100px);padding-bottom:100px}.cover-wrapper#half{max-height:640px;min-height:400px;height:calc(36vh - 64px + 200px)}.cover-wrapper #scroll-down{width:100%;height:64px;position:absolute;bottom:100px;text-align:center;cursor:pointer}.cover-wrapper #scroll-down .scroll-down-effects{color:#fff;font-size:24px;line-height:64px;position:absolute;width:24px;left:calc(50% - 12px);text-shadow:0 1px 2px rgba(0,0,0,.1);animation:scroll-down-effect 1.5s infinite;-webkit-animation:scroll-down-effect 1.5s infinite;-khtml-animation:scroll-down-effect 1.5s infinite;-moz-animation:scroll-down-effect 1.5s infinite;-o-animation:scroll-down-effect 1.5s infinite;-ms-animation:scroll-down-effect 1.5s infinite}@-moz-keyframes scroll-down-effect{0%{top:0;opacity:1;-webkit-opacity:1;-moz-opacity:1}50%{top:-16px;opacity:.4;-webkit-opacity:.4;-moz-opacity:.4}100%{top:0;opacity:1;-webkit-opacity:1;-moz-opacity:1}}@-webkit-keyframes scroll-down-effect{0%{top:0;opacity:1;-webkit-opacity:1;-moz-opacity:1}50%{top:-16px;opacity:.4;-webkit-opacity:.4;-moz-opacity:.4}100%{top:0;opacity:1;-webkit-opacity:1;-moz-opacity:1}}@-o-keyframes scroll-down-effect{0%{top:0;opacity:1;-webkit-opacity:1;-moz-opacity:1}50%{top:-16px;opacity:.4;-webkit-opacity:.4;-moz-opacity:.4}100%{top:0;opacity:1;-webkit-opacity:1;-moz-opacity:1}}@keyframes scroll-down-effect{0%{top:0;opacity:1;-webkit-opacity:1;-moz-opacity:1}50%{top:-16px;opacity:.4;-webkit-opacity:.4;-moz-opacity:.4}100%{top:0;opacity:1;-webkit-opacity:1;-moz-opacity:1}}.cover-wrapper .cover-body{margin-top:64px;margin-bottom:100px}.cover-wrapper .cover-body,.cover-wrapper .cover-body .bottom,.cover-wrapper .cover-body .top{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex;-webkit-box-direction:normal;-moz-box-direction:normal;-webkit-box-orient:vertical;-moz-box-orient:vertical;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;align-items:center;justify-content:center;-webkit-justify-content:center;-khtml-justify-content:center;-moz-justify-content:center;-o-justify-content:center;-ms-justify-content:center;max-width:100%}.cover-wrapper .cover-body .bottom{margin-top:32px}.cover-wrapper .cover-body .title{font-family:euler,"PingFang SC","Microsoft YaHei",Helvetica,Arial,Helvetica,monospace;font-size:3.125rem;line-height:1.2;text-shadow:0 1px 2px rgba(0,0,0,.1)}.cover-wrapper .cover-body .subtitle{font-size:20px}.cover-wrapper .cover-body .logo{max-height:120px;max-width:calc(100% - 4 * 16px)}@media screen and (min-height:1024px){.cover-wrapper .cover-body .title{font-size:3rem}.cover-wrapper .cover-body .subtitle{font-size:1.05rem}.cover-wrapper .cover-body .logo{max-height:150px}}.cover-wrapper .cover-body .m_search{position:relative;max-width:calc(100% - 16px);width:320px;vertical-align:middle}.cover-wrapper .cover-body .m_search .form{position:relative;display:-webkit-box;display:-moz-box;display:block;width:100%}.cover-wrapper .cover-body .m_search .icon,.cover-wrapper .cover-body .m_search .input{transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease}.cover-wrapper .cover-body .m_search .icon{position:absolute;display:-webkit-box;display:-moz-box;display:block;line-height:2.5rem;width:32px;top:0;left:5px;color:rgba(68,68,68,.75)}.cover-wrapper .cover-body .m_search .input{display:-webkit-box;display:-moz-box;display:block;height:2.5rem;width:100%;box-shadow:none;-webkit-box-shadow:none;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;font-size:.875rem;-webkit-appearance:none;padding-left:36px;border-radius:1.4rem;-webkit-border-radius:1.4rem;background:rgba(255,255,255,.6);backdrop-filter:blur(10px);border:none;color:var(--color-text)}@media screen and (max-width:500px){.cover-wrapper .cover-body .m_search .input{padding-left:36px}}.cover-wrapper .cover-body .m_search .input:hover{background:rgba(255,255,255,.8)}.cover-wrapper .cover-body .m_search .input:focus{background:#fff}.cover-wrapper .list-h{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex;-webkit-box-direction:normal;-moz-box-direction:normal;-webkit-box-orient:horizontal;-moz-box-orient:horizontal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;flex-wrap:wrap;-webkit-flex-wrap:wrap;-khtml-flex-wrap:wrap;-moz-flex-wrap:wrap;-o-flex-wrap:wrap;-ms-flex-wrap:wrap;align-items:stretch;border-radius:4px;-webkit-border-radius:4px;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}.cover-wrapper .list-h a{-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1 0;-ms-flex:1 0;flex:1 0;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex;font-weight:600}.cover-wrapper .list-h a img{display:-webkit-box;display:-moz-box;display:block;border-radius:2px;-webkit-border-radius:2px;margin:4px;min-width:40px;max-width:44px}@media screen and (max-width:768px){.cover-wrapper .list-h a img{min-width:36px;max-width:40px}}@media screen and (max-width:500px){.cover-wrapper .list-h a img{margin:2px 4px;min-width:32px;max-width:36px}}@media screen and (max-width:375px){.cover-wrapper .list-h a img{min-width:28px;max-width:32px}}.cover-wrapper{max-width:100%}.cover-wrapper.search .bottom .menu{margin-top:16px}.cover-wrapper.search .bottom .menu .list-h a{white-space:nowrap;-webkit-box-direction:normal;-moz-box-direction:normal;-webkit-box-orient:horizontal;-moz-box-orient:horizontal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;align-items:baseline;padding:2px;margin:4px;color:var(--color-site-inner);opacity:.75;-webkit-opacity:.75;-moz-opacity:.75;text-shadow:0 1px 2px rgba(0,0,0,.05);border-bottom:2px solid transparent}.cover-wrapper.search .bottom .menu .list-h a i{margin-right:4px}.cover-wrapper.search .bottom .menu .list-h a p{font-size:1rem}.cover-wrapper.search .bottom .menu .list-h a.active,.cover-wrapper.search .bottom .menu .list-h a:active,.cover-wrapper.search .bottom .menu .list-h a:hover{opacity:1;-webkit-opacity:1;-moz-opacity:1;border-bottom:2px solid var(--color-site-inner)}.cover-wrapper.dock .menu,.cover-wrapper.featured .menu,.cover-wrapper.focus .menu{border-radius:6px;-webkit-border-radius:6px}.cover-wrapper.dock .menu .list-h a,.cover-wrapper.featured .menu .list-h a,.cover-wrapper.focus .menu .list-h a{-webkit-box-direction:normal;-moz-box-direction:normal;-webkit-box-orient:vertical;-moz-box-orient:vertical;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;align-items:center;padding:12px;line-height:24px;border-radius:4px;-webkit-border-radius:4px;border-bottom:none;text-align:center;align-content:flex-end;color:rgba(68,68,68,.7);font-size:1.5rem}@media screen and (max-width:500px){.cover-wrapper.dock .menu .list-h a,.cover-wrapper.featured .menu .list-h a,.cover-wrapper.focus .menu .list-h a{padding:12px 8px}}.cover-wrapper.dock .menu .list-h a i,.cover-wrapper.featured .menu .list-h a i,.cover-wrapper.focus .menu .list-h a i{margin:8px}.cover-wrapper.dock .menu .list-h a p,.cover-wrapper.featured .menu .list-h a p,.cover-wrapper.focus .menu .list-h a p{font-size:.875rem}.cover-wrapper.dock .menu .list-h a.active,.cover-wrapper.featured .menu .list-h a.active,.cover-wrapper.focus .menu .list-h a.active{background:var(--color-card);backdrop-filter:none}.cover-wrapper.dock .menu .list-h a.active i,.cover-wrapper.dock .menu .list-h a.active i+p,.cover-wrapper.featured .menu .list-h a.active i,.cover-wrapper.featured .menu .list-h a.active i+p,.cover-wrapper.focus .menu .list-h a.active i,.cover-wrapper.focus .menu .list-h a.active i+p{color:#44d7b6}.cover-wrapper.dock .menu .list-h a.active img+p,.cover-wrapper.featured .menu .list-h a.active img+p,.cover-wrapper.focus .menu .list-h a.active img+p{color:var(--color-text)}.cover-wrapper.dock .menu .list-h a:hover,.cover-wrapper.featured .menu .list-h a:hover,.cover-wrapper.focus .menu .list-h a:hover{background:var(--color-card)}.cover-wrapper.dock .top{margin-bottom:48px}.cover-wrapper.dock .menu{background:rgba(255,255,255,.5);position:absolute;bottom:0;max-width:100%}.cover-wrapper.dock .menu .list-h{flex-wrap:nowrap;-webkit-flex-wrap:nowrap;-khtml-flex-wrap:nowrap;-moz-flex-wrap:nowrap;-o-flex-wrap:nowrap;-ms-flex-wrap:nowrap;margin:4px}.cover-wrapper.dock .menu .list-h a+a{margin-left:4px}@media screen and (max-width:500px){.cover-wrapper.dock .menu .list-h{overflow-x:scroll}.cover-wrapper.dock .menu .list-h::-webkit-scrollbar{height:0;width:0}.cover-wrapper.dock .menu .list-h::-webkit-scrollbar-track-piece{background:0 0}.cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb{background:#44d7b6;cursor:pointer;border-radius:0;-webkit-border-radius:0}.cover-wrapper.dock .menu .list-h::-webkit-scrollbar-thumb:hover{background:#ff5722}}@supports (backdrop-filter:blur(20px)){.cover-wrapper.dock .menu{background:rgba(255,255,255,.5);backdrop-filter:saturate(200%) blur(20px)}}.cover-wrapper .menu img{width:100%;height:auto;aspect-ratio:1}@media (prefers-color-scheme:dark){:root{--color-mode:'dark'}:root:not([color-scheme]){--color-site-body:#000;--color-read-bkg:#222;--color-read-post:#333;--color-site-bg:#222;--color-site-inner:#eee;--color-site-footer:#aaa;--color-card:#333;--color-text:#eee;--color-block:#3a3a3a;--color-codeblock:#343a3c;--color-inlinecode:#d56d28;--color-h1:#eee;--color-h2:#eee;--color-h3:#ddd;--color-h4:#ddd;--color-h5:#ddd;--color-h6:#ddd;--color-p:#bbb;--color-list:#aaa;--color-list-hl:#69dfc4;--color-meta:#888;--color-link:#888}:root:not([color-scheme]) img{filter:brightness(70%)!important}:root:not([color-scheme]) #wrapper .title{color:var(--color-meta)!important}:root:not([color-scheme]) .l_header ul.nav-list-h>li>a,:root:not([color-scheme]) ul.list-v>li>a{color:var(--color-list)!important}:root:not([color-scheme]) .blur{background:var(--color-site-bg)!important}:root:not([color-scheme]) .nav-main .u-search-input{background:var(--color-card)!important}:root:not([color-scheme]) #l_main .article .prev-next>a{background:var(--color-block)!important}:root:not([color-scheme]) #l_main .article .prev-next>a:hover{background:var(--color-card)!important}:root:not([color-scheme]) .article blockquote{background:var(--color-block)!important}:root:not([color-scheme]) .article-title a{color:var(--color-h1)!important}:root:not([color-scheme]) details>summary{color:var(--color-p)!important;background:var(--color-site-bg)!important}:root:not([color-scheme]) details{border:1px solid var(--color-site-bg)!important;background:var(--color-site-bg)!important}:root:not([color-scheme]) #u-search .modal,:root:not([color-scheme]) #u-search .modal-body,:root:not([color-scheme]) #u-search .modal-header{background:var(--color-card)!important}:root:not([color-scheme]) #u-search .modal-body .modal-results .result:hover{background:var(--color-block)!important}}[color-scheme=dark]{--color-site-body:#000;--color-read-bkg:#222;--color-read-post:#333;--color-site-bg:#222;--color-site-inner:#eee;--color-site-footer:#aaa;--color-card:#333;--color-text:#eee;--color-block:#3a3a3a;--color-codeblock:#343a3c;--color-inlinecode:#d56d28;--color-h1:#eee;--color-h2:#eee;--color-h3:#ddd;--color-h4:#ddd;--color-h5:#ddd;--color-h6:#ddd;--color-p:#bbb;--color-list:#aaa;--color-list-hl:#69dfc4;--color-meta:#888;--color-link:#888}[color-scheme=dark] img{filter:brightness(70%)!important}[color-scheme=dark] #wrapper .title{color:var(--color-meta)!important}[color-scheme=dark] .l_header ul.nav-list-h>li>a,[color-scheme=dark] ul.list-v>li>a{color:var(--color-list)!important}[color-scheme=dark] .blur{background:var(--color-site-bg)!important}[color-scheme=dark] .nav-main .u-search-input{background:var(--color-card)!important}[color-scheme=dark] #l_main .article .prev-next>a{background:var(--color-block)!important}[color-scheme=dark] #l_main .article .prev-next>a:hover{background:var(--color-card)!important}[color-scheme=dark] .article blockquote{background:var(--color-block)!important}[color-scheme=dark] .article-title a{color:var(--color-h1)!important}[color-scheme=dark] details>summary{color:var(--color-p)!important;background:var(--color-site-bg)!important}[color-scheme=dark] details{border:1px solid var(--color-site-bg)!important;background:var(--color-site-bg)!important}[color-scheme=dark] #u-search .modal,[color-scheme=dark] #u-search .modal-body,[color-scheme=dark] #u-search .modal-header{background:var(--color-card)!important}[color-scheme=dark] #u-search .modal-body .modal-results .result:hover{background:var(--color-block)!important}@media screen and (max-width:500px){[color-scheme=dark] .l_header .m_search{background:var(--color-site-bg)!important}}@font-face{font-family:UbuntuMono;src:url(https://cdn.jsdelivr.net/gh/pufanyi/CDN/fonts/UbuntuMono-Regular.woff2);font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:euler;src:url(https://cdn.jsdelivr.net/gh/pufanyi/CDN/fonts/euler.woff2);font-weight:400;font-style:normal;font-display:swap}.l_header{position:fixed;z-index:1000;top:0;width:100%;height:64px;background:var(--color-card);box-shadow:0 1px 2px 0 rgba(0,0,0,.1);-webkit-box-shadow:0 1px 2px 0 rgba(0,0,0,.1)}.l_header.auto{transition:opacity .4s ease;-webkit-transition:opacity .4s ease;-khtml-transition:opacity .4s ease;-moz-transition:opacity .4s ease;-o-transition:opacity .4s ease;-ms-transition:opacity .4s ease;visibility:hidden}.l_header.auto.show{opacity:1!important;-webkit-opacity:1!important;-moz-opacity:1!important;visibility:visible}.l_header .container{margin-left:16px;margin-right:16px}.l_header #wrapper{height:100%;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none}.l_header #wrapper .nav-main,.l_header #wrapper .nav-sub{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex;flex-wrap:nowrap;-webkit-flex-wrap:nowrap;-khtml-flex-wrap:nowrap;-moz-flex-wrap:nowrap;-o-flex-wrap:nowrap;-ms-flex-wrap:nowrap;justify-content:space-between;-webkit-justify-content:space-between;-khtml-justify-content:space-between;-moz-justify-content:space-between;-o-justify-content:space-between;-ms-justify-content:space-between;align-items:center}.l_header #wrapper .nav-main{transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease}.l_header #wrapper.sub .nav-main{transform:translateY(-64px);-webkit-transform:translateY(-64px);-khtml-transform:translateY(-64px);-moz-transform:translateY(-64px);-o-transform:translateY(-64px);-ms-transform:translateY(-64px)}.l_header #wrapper .nav-sub{transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease;opacity:0;-webkit-opacity:0;-moz-opacity:0;height:64px;width:calc(100% - 2 * 16px);position:absolute}.l_header #wrapper .nav-sub ::-webkit-scrollbar{display:-webkit-box;display:-moz-box;display:none}@media screen and (min-width:2048px){.l_header #wrapper .nav-sub{max-width:55vw;margin:auto}}.l_header #wrapper.sub .nav-sub{opacity:1;-webkit-opacity:1;-moz-opacity:1}.l_header #wrapper .title{position:relative;color:var(--color-text);padding-left:24px;max-height:64px}.l_header #wrapper .nav-main .title{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;flex-shrink:0;line-height:64px;padding:0 24px;font-size:1.25rem;font-family:euler,"PingFang SC","Microsoft YaHei",Helvetica,Arial,Helvetica,monospace}.l_header #wrapper .nav-main .title img{height:64px}.l_header .nav-sub{max-width:1080px;margin:auto}.l_header .nav-sub .title{font-weight:700;font-family:UbuntuMono,"Varela Round","PingFang SC","Microsoft YaHei",Helvetica,Arial,Menlo,Monaco,monospace,sans-serif;line-height:1.2;max-height:64px;white-space:normal;flex-shrink:1}.l_header .switcher{display:-webkit-box;display:-moz-box;display:none;line-height:64px;align-items:center}.l_header .switcher .s-toc{display:-webkit-box;display:-moz-box;display:none}@media screen and (max-width:768px){.l_header .switcher .s-toc{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex}}.l_header .switcher>li{height:48px;transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease;margin:2px}@media screen and (max-width:500px){.l_header .switcher>li{margin:0 1px;height:48px}}.l_header .switcher>li>a{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex;justify-content:center;-webkit-justify-content:center;-khtml-justify-content:center;-moz-justify-content:center;-o-justify-content:center;-ms-justify-content:center;align-items:center;width:48px;height:48px;padding:.85em 1.1em;border-radius:100px;-webkit-border-radius:100px;border:none;transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease;color:#44d7b6}.l_header .switcher>li>a:hover{border:none}.l_header .switcher>li>a.active,.l_header .switcher>li>a:active{border:none;background:var(--color-site-bg)}@media screen and (max-width:500px){.l_header .switcher>li>a{width:36px;height:48px}}.l_header .nav-sub .switcher{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex}.l_header .m_search{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex;height:64px;width:240px;transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease}@media screen and (max-width:1024px){.l_header .m_search{width:44px;min-width:44px}.l_header .m_search input::placeholder{opacity:0;-webkit-opacity:0;-moz-opacity:0}.l_header .m_search:hover{width:240px}.l_header .m_search:hover input::placeholder{opacity:1;-webkit-opacity:1;-moz-opacity:1}}@media screen and (min-width:500px){.l_header .m_search:hover .input{width:100%}.l_header .m_search:hover .input::placeholder{opacity:1;-webkit-opacity:1;-moz-opacity:1}}@media screen and (max-width:500px){.l_header .m_search{min-width:0}.l_header .m_search input::placeholder{opacity:1;-webkit-opacity:1;-moz-opacity:1}}.l_header .m_search .form{position:relative;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex;width:100%;align-items:center}.l_header .m_search .icon{position:absolute;width:36px;left:5px;color:var(--color-meta)}@media screen and (max-width:500px){.l_header .m_search .icon{display:-webkit-box;display:-moz-box;display:none}}.l_header .m_search .input{display:-webkit-box;display:-moz-box;display:block;padding-top:8px;padding-bottom:8px;line-height:1.3;width:100%;color:var(--color-text);background:#fafafa;box-shadow:none;-webkit-box-shadow:none;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;padding-left:40px;font-size:.875rem;border-radius:8px;-webkit-border-radius:8px;border:none;transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease}@media screen and (min-width:500px){.l_header .m_search .input:focus{box-shadow:0 4px 8px 0 rgba(0,0,0,.1);-webkit-box-shadow:0 4px 8px 0 rgba(0,0,0,.1)}}@media screen and (max-width:500px){.l_header .m_search .input{background:var(--color-block);padding-left:8px;border:none}.l_header .m_search .input:focus,.l_header .m_search .input:hover{border:none}}@media (max-width:500px){.l_header .m_search{left:0;width:0;overflow:hidden;position:absolute;background:#fff;transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease}.l_header .m_search .input{border-radius:32px;-webkit-border-radius:32px;margin-left:16px;padding-left:16px}.l_header.z_search-open .m_search{width:100%}.l_header.z_search-open .m_search .input{width:calc(100% - 120px)}}ul.m-pc>li>a{color:inherit;border-bottom:2px solid transparent}ul.m-pc>li>a.active,ul.m-pc>li>a:active{border-bottom:2px solid #44d7b6}ul.list-v li:hover>ul.list-v,ul.m-pc li:hover>ul.list-v{display:-webkit-box;display:-moz-box;display:block}ul.nav-list-h{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex;align-items:stretch}ul.nav-list-h>li{position:relative;justify-content:center;-webkit-justify-content:center;-khtml-justify-content:center;-moz-justify-content:center;-o-justify-content:center;-ms-justify-content:center;height:100%;line-height:2.4;border-radius:4px;-webkit-border-radius:4px}ul.nav-list-h>li>a{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-weight:600}ul.list-v{z-index:1;display:-webkit-box;display:-moz-box;display:none;position:absolute;background:var(--color-card);box-shadow:0 2px 4px 0 rgba(0,0,0,.08),0 4px 8px 0 rgba(0,0,0,.08),0 8px 16px 0 rgba(0,0,0,.08);-webkit-box-shadow:0 2px 4px 0 rgba(0,0,0,.08),0 4px 8px 0 rgba(0,0,0,.08),0 8px 16px 0 rgba(0,0,0,.08);margin-top:-6px;border-radius:4px;-webkit-border-radius:4px;padding:8px 0}ul.list-v.show{display:-webkit-box;display:-moz-box;display:block}ul.list-v hr{margin-top:8px;margin-bottom:8px}ul.list-v>li{white-space:nowrap;word-break:keep-all}ul.list-v>li.header{font-size:.78125rem;font-weight:700;line-height:2em;color:var(--color-meta);margin:8px 16px 4px}ul.list-v>li.header i{margin-right:8px}ul.list-v>li ul{margin-left:0;display:-webkit-box;display:-moz-box;display:none;margin-top:-40px}ul.list-v .aplayer-container{min-height:64px;padding:6px 16px}ul.list-v>li>a{transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease;display:-webkit-box;display:-moz-box;display:block;color:var(--color-list);font-size:.875rem;font-weight:700;line-height:36px;padding:0 20px 0 16px;text-overflow:ellipsis;margin:0 4px;border-radius:4px;-webkit-border-radius:4px}@media screen and (max-width:1024px){ul.list-v>li>a{line-height:40px}}ul.list-v>li>a>i{margin-right:8px}ul.list-v>li>a.active,ul.list-v>li>a:active{color:var(--color-list-hl)}ul.list-v>li>a:hover{color:var(--color-list-hl);background:var(--color-site-bg)}.l_header .menu>ul>li>a{display:-webkit-box;display:-moz-box;display:block;padding:0 8px}.l_header .menu>ul>li>a>i{margin-right:4px}.l_header ul.nav-list-h>li{color:var(--color-list);line-height:64px}.l_header ul.nav-list-h>li>a{max-height:64px;overflow:hidden;color:inherit}.l_header ul.nav-list-h>li>a.active,.l_header ul.nav-list-h>li>a:active{color:#44d7b6}.l_header ul.nav-list-h>li:hover>a{color:var(--color-list-hl)}.l_header ul.nav-list-h>li i.music{animation:rotate-effect 1.5s linear infinite;-webkit-animation:rotate-effect 1.5s linear infinite;-khtml-animation:rotate-effect 1.5s linear infinite;-moz-animation:rotate-effect 1.5s linear infinite;-o-animation:rotate-effect 1.5s linear infinite;-ms-animation:rotate-effect 1.5s linear infinite}@-moz-keyframes rotate-effect{0%{transform:rotate(0);-webkit-transform:rotate(0);-khtml-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);-ms-transform:rotate(0)}25%{transform:rotate(90deg);-webkit-transform:rotate(90deg);-khtml-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform:rotate(90deg);-ms-transform:rotate(90deg)}50%{transform:rotate(180deg);-webkit-transform:rotate(180deg);-khtml-transform:rotate(180deg);-moz-transform:rotate(180deg);-o-transform:rotate(180deg);-ms-transform:rotate(180deg)}75%{transform:rotate(270deg);-webkit-transform:rotate(270deg);-khtml-transform:rotate(270deg);-moz-transform:rotate(270deg);-o-transform:rotate(270deg);-ms-transform:rotate(270deg)}100%{transform:rotate(360deg);-webkit-transform:rotate(360deg);-khtml-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg)}}@-webkit-keyframes rotate-effect{0%{transform:rotate(0);-webkit-transform:rotate(0);-khtml-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);-ms-transform:rotate(0)}25%{transform:rotate(90deg);-webkit-transform:rotate(90deg);-khtml-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform:rotate(90deg);-ms-transform:rotate(90deg)}50%{transform:rotate(180deg);-webkit-transform:rotate(180deg);-khtml-transform:rotate(180deg);-moz-transform:rotate(180deg);-o-transform:rotate(180deg);-ms-transform:rotate(180deg)}75%{transform:rotate(270deg);-webkit-transform:rotate(270deg);-khtml-transform:rotate(270deg);-moz-transform:rotate(270deg);-o-transform:rotate(270deg);-ms-transform:rotate(270deg)}100%{transform:rotate(360deg);-webkit-transform:rotate(360deg);-khtml-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg)}}@-o-keyframes rotate-effect{0%{transform:rotate(0);-webkit-transform:rotate(0);-khtml-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);-ms-transform:rotate(0)}25%{transform:rotate(90deg);-webkit-transform:rotate(90deg);-khtml-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform:rotate(90deg);-ms-transform:rotate(90deg)}50%{transform:rotate(180deg);-webkit-transform:rotate(180deg);-khtml-transform:rotate(180deg);-moz-transform:rotate(180deg);-o-transform:rotate(180deg);-ms-transform:rotate(180deg)}75%{transform:rotate(270deg);-webkit-transform:rotate(270deg);-khtml-transform:rotate(270deg);-moz-transform:rotate(270deg);-o-transform:rotate(270deg);-ms-transform:rotate(270deg)}100%{transform:rotate(360deg);-webkit-transform:rotate(360deg);-khtml-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg)}}@keyframes rotate-effect{0%{transform:rotate(0);-webkit-transform:rotate(0);-khtml-transform:rotate(0);-moz-transform:rotate(0);-o-transform:rotate(0);-ms-transform:rotate(0)}25%{transform:rotate(90deg);-webkit-transform:rotate(90deg);-khtml-transform:rotate(90deg);-moz-transform:rotate(90deg);-o-transform:rotate(90deg);-ms-transform:rotate(90deg)}50%{transform:rotate(180deg);-webkit-transform:rotate(180deg);-khtml-transform:rotate(180deg);-moz-transform:rotate(180deg);-o-transform:rotate(180deg);-ms-transform:rotate(180deg)}75%{transform:rotate(270deg);-webkit-transform:rotate(270deg);-khtml-transform:rotate(270deg);-moz-transform:rotate(270deg);-o-transform:rotate(270deg);-ms-transform:rotate(270deg)}100%{transform:rotate(360deg);-webkit-transform:rotate(360deg);-khtml-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg)}}.menu-phone li ul.list-v{right:calc(100% - .5 * 16px)}.menu-phone li ul.list-v ul{right:calc(100% - .5 * 16px)}#wrapper{max-width:1080px;margin:auto}@media screen and (min-width:2048px){#wrapper{max-width:55vw}}#wrapper .menu{-webkit-box-flex:1;-moz-box-flex:1;-webkit-flex:1 1;-ms-flex:1 1;flex:1 1;margin:0 16px 0 0}#wrapper .menu .list-v ul{left:calc(100% - .5 * 16px)}.menu-phone{display:-webkit-box;display:-moz-box;display:none;margin-top:16px;right:8px;transition:all .28s ease;-webkit-transition:all .28s ease;-khtml-transition:all .28s ease;-moz-transition:all .28s ease;-o-transition:all .28s ease;-ms-transition:all .28s ease}.menu-phone ul{right:calc(100% - .5 * 16px)}@media screen and (max-width:500px){.menu-phone{display:-webkit-box;display:-moz-box;display:block}}.l_header{max-width:65vw;left:calc((100% - 65vw) * .5);border-bottom-left-radius:8px;border-bottom-right-radius:8px}@media screen and (max-width:2048px){.l_header{max-width:1112px;left:calc((100% - 1112px) * .5)}}@media screen and (max-width:1112px){.l_header{left:0;border-radius:0;-webkit-border-radius:0;max-width:100%}}@media screen and (max-width:500px){.l_header .container{margin-left:0;margin-right:0}.l_header #wrapper .nav-main .title{padding-left:16px;padding-right:16px}.l_header #wrapper .nav-sub{width:100%}.l_header #wrapper .nav-sub .title{overflow-y:scroll;margin-top:2px;padding:8px 16px}.l_header #wrapper .switcher{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;display:flex;margin-right:8px}.l_header .menu{display:-webkit-box;display:-moz-box;display:none}}@media screen and (max-width:500px){.list-v li{max-width:270px}}#u-search{display:-webkit-box;display:-moz-box;display:none;position:fixed;top:0;left:0;width:100%;height:100%;padding:60px 20px;z-index:1001}@media screen and (max-width:680px){#u-search{padding:0}}@media screen and (prefers-color-scheme:dark) and (max-width:500px){.l_header .m_search{background:var(--color-site-bg)!important}}</style><link rel="stylesheet" href="/oi-blog/css/style.css?time=1719083826325" media="print" onload='this.media="all",this.onload=null'><noscript><link rel="stylesheet" href="/oi-blog/css/style.css?time=1719083826325"></noscript><script>var userColorScheme=localStorage.getItem("color-scheme");userColorScheme&&document.documentElement.setAttribute("color-scheme",userColorScheme)</script><script>window.MSInputMethodContext&&document.documentMode&&document.write('<style>html{overflow-x: hidden !important;overflow-y: hidden !important;}.kill-ie{text-align:center;height: 100%;margin-top: 15%;margin-bottom: 5500%;}#l_header,#l_body{display: none;}</style><div class="kill-ie"><h2><b>抱歉，您的浏览器无法访问本站</b></h2><h3>微软已经于2016年终止了对 Internet Explorer (IE) 10 及更早版本的支持，<br/>继续使用存在极大的安全隐患，请使用当代主流的浏览器进行访问。</h3><br/><a target="_blank" rel="noopener" href="https://www.microsoft.com/zh-cn/WindowsForBusiness/End-of-IE-support"><strong>了解详情 ></strong></a></div>')</script><noscript><style>html{overflow-x:hidden!important;overflow-y:hidden!important}.kill-noscript{text-align:center;height:100%;margin-top:15%;margin-bottom:5500%}#l_body,#l_header{display:none}</style><div class="kill-noscript"><h2><b>抱歉，您的浏览器无法访问本站</b></h2><h3>本页面需要浏览器支持（启用）JavaScript</h3><br><a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=启用JavaScript"><strong>了解详情 ></strong></a></div></noscript></head><body><header id="l_header" class="l_header auto shadow floatable blur show" style="opacity:0"><div class="container"><div id="wrapper"><div class="nav-sub"><p class="title"></p><ul class="switcher nav-list-h m-phone" id="pjax-header-nav-list"><li><a id="s-comment" class="fas fa-comments fa-fw" target="_self" href="/" onclick="return!1" title="comment"></a></li><li><a id="s-toc" class="s-toc fas fa-list fa-fw" target="_self" href="/" onclick="return!1" title="toc"></a></li></ul></div><div class="nav-main"><a class="title flat-box" target="_self" href="/oi-blog/">PuFanyi's Blog</a><div class="menu navigation"><ul class="nav-list-h m-pc"><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/" active-action="action-oi-blog"><i class="fas fa-rss fa-fw"></i>主页</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/categories/" rel="nofollow" active-action="action-oi-blogcategories"><i class="fas fa-folder-open fa-fw"></i>分类</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/tags/" active-action="action-oi-blogtags"><i class="fas fa-tags fa-fw"></i>标签</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/archives/" rel="nofollow" active-action="action-oi-blogarchives"><i class="fas fa-archive fa-fw"></i>归档</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/friends/" rel="nofollow" active-action="action-oi-blogfriends"><i class="fas fa-link fa-fw"></i>友链</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/about/" rel="nofollow" active-action="action-oi-blogabout"><i class="fas fa-user fa-fw"></i>关于</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/categories/%E5%85%AC%E5%91%8A/" rel="nofollow" active-action="action-oi-blogcategoriesE585ACE5918A"><i class="fas fa-bullhorn fa-fw"></i>公告</a></li></ul></div><div class="m_search"><form name="searchform" class="form u-search-form"><i class="icon fas fa-search fa-fw"></i> <input type="text" class="input u-search-input" placeholder="Search..."></form></div><ul class="switcher nav-list-h m-phone"><li><a class="s-search fas fa-search fa-fw" target="_self" href="/" onclick="return!1" title="search"></a></li><li><a class="s-menu fas fa-bars fa-fw" target="_self" href="/" onclick="return!1" title="menu"></a><ul class="menu-phone list-v navigation white-box"><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/" active-action="action-oi-blog"><i class="fas fa-rss fa-fw"></i>主页</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/categories/" rel="nofollow" active-action="action-oi-blogcategories"><i class="fas fa-folder-open fa-fw"></i>分类</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/tags/" active-action="action-oi-blogtags"><i class="fas fa-tags fa-fw"></i>标签</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/archives/" rel="nofollow" active-action="action-oi-blogarchives"><i class="fas fa-archive fa-fw"></i>归档</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/friends/" rel="nofollow" active-action="action-oi-blogfriends"><i class="fas fa-link fa-fw"></i>友链</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/about/" rel="nofollow" active-action="action-oi-blogabout"><i class="fas fa-user fa-fw"></i>关于</a></li><li><a class="menuitem flat-box faa-parent animated-hover" href="/oi-blog/categories/%E5%85%AC%E5%91%8A/" rel="nofollow" active-action="action-oi-blogcategoriesE585ACE5918A"><i class="fas fa-bullhorn fa-fw"></i>公告</a></li></ul></li></ul></div></div></div></header><div id="l_body"><div id="l_cover"></div><div id="safearea"><div class="body-wrapper" id="pjax-container"><div id="l_main"><article class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost"><div class="article-meta" id="top"><h1 class="title">CodeForces 875E Delivery Club</h1><div class="new-meta-box"><div class="new-meta-item author"><a class="author" href="/" rel="nofollow"><img no-lazy src="https://cdn.jsdelivr.net/gh/pufanyi/CDN/img/avatar_very_small.webp" alt="This is a picture without description" ><p>pufanyi</p></a></div><div class="new-meta-item category"><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i> <a class="category-link" href="/oi-blog/categories/%E9%A2%98%E8%A7%A3/">题解</a></div><div class="new-meta-item date"><a class="notlink" href="/" onclick="return false;" title="Click me!" ><i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i><p>发布于：Jan 12, 2019</p></a></div></div></div><div id="layoutHelper-page-plugins"></div><p>有两个快递员，分别在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>s</mi><mn>2</mn></msub><mo stretchy="false">(</mo><mn>0</mn><mo>≤</mo><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>s</mi><mn>2</mn></msub><mo>≤</mo><mn>1</mn><msup><mn>0</mn><mn>9</mn></msup><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">s_1, s_2(0\le s_1,s_2\le 10^9)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mopen">(</span><span class="mord">0</span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:.8304100000000001em;vertical-align:-.19444em"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1.064108em;vertical-align:-.25em"></span><span class="mord">1</span><span class="mord"><span class="mord">0</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:.8141079999999999em"><span style="top:-3.063em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">9</span></span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>，现在有<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo stretchy="false">(</mo><mn>1</mn><mo>≤</mo><mi>n</mi><mo>≤</mo><mn>100000</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">n(1\le n\le 100000)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord">1</span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:.7719400000000001em;vertical-align:-.13597em"></span><span class="mord mathnormal">n</span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">≤</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord">1</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mord">0</span><span class="mclose">)</span></span></span></span> 个任务，每个任务 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.58056em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span></span></span></span> 表示要将货物送到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.58056em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span></span></span></span>，让任何一个快递员到<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.58056em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span></span></span></span> 都可以。由于快递员之间需要有对讲机联系，请你设计一种方案使得两个快递员之间的最长距离最短。</p><span id="more"></span><p>先输入 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi><mo separator="true">,</mo><msub><mi>s</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>s</mi><mn>2</mn></msub></mrow><annotation encoding="application/x-tex">n,s_1,s_2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.625em;vertical-align:-.19444em"></span><span class="mord mathnormal">n</span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal">s</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.30110799999999993em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span></span></span></span>，在一行<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>n</mi></mrow><annotation encoding="application/x-tex">n</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.43056em;vertical-align:0"></span><span class="mord mathnormal">n</span></span></span></span> 个整数<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.58056em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span></span></span></span>。</p><h2 id="题解"><a class="markdownIt-Anchor" href="# 题解"></a> 题解</h2><div class="story post-story"><p>CF 如此多的二分 + 贪心，但我就是想不出来……</p><p>首先二分答案。</p><p>难点是在如何判断答案合法。</p><p>显然正着做是不行的，所以我们考虑倒着做。</p><p>我们考虑现在二分的距离为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.68333em;vertical-align:0"></span><span class="mord mathnormal">L</span></span></span></span>，枚举到第<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>i</mi></mrow><annotation encoding="application/x-tex">i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.65952em;vertical-align:0"></span><span class="mord mathnormal">i</span></span></span></span> 步，如果两个快递员中至少有一个的起点出现在 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>l</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l_i,r_i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span> 的范围内，且两个快递员相距不超过<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.68333em;vertical-align:0"></span><span class="mord mathnormal">L</span></span></span></span>，那么是合法的。</p><p>现在考虑从 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>l</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>r</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l_{i+1},r_{i+1}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.311664em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.208331em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.311664em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.208331em"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span> 向<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>l</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l_{i},r_{i}]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>转移。</p><p>显然，两个快递员中只有一个快递员动，而不动的那个快递员必须已经在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><mi>L</mi><mo separator="true">,</mo><msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><mi>L</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[x_i-L,x_i+L]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:.8777699999999999em;vertical-align:-.19444em"></span><span class="mord mathnormal">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal">L</span><span class="mclose">]</span></span></span></span>。</p><p>我们考虑下面两种情况：</p><p>如果 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>∈</mo><mo stretchy="false">[</mo><msub><mi>l</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">x_i\in[l_i,r_i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.6891em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>，那么只要有一个快递员已经在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><mi>L</mi><mo separator="true">,</mo><msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><mi>L</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[x_i-L,x_i+L]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:.8777699999999999em;vertical-align:-.19444em"></span><span class="mord mathnormal">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal">L</span><span class="mclose">]</span></span></span></span> 里即可，我们让另一个快递员走到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.58056em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span></span></span></span>，而因为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo>∈</mo><mo stretchy="false">[</mo><msub><mi>l</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">x_i\in[l_i,r_i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.6891em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">∈</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>，所以这位快递员在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>l</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l_i,r_i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span> 里了，且两个快递员相距不超过<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>L</mi></mrow><annotation encoding="application/x-tex">L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.68333em;vertical-align:0"></span><span class="mord mathnormal">L</span></span></span></span>。所以<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>l</mi><mi>i</mi></msub><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><mi>L</mi><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo>=</mo><msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><mi>L</mi></mrow><annotation encoding="application/x-tex">l_i=x_i-L, r_i=x_i+L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.84444em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:.73333em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:.8777699999999999em;vertical-align:-.19444em"></span><span class="mord mathnormal">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:.73333em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:.68333em;vertical-align:0"></span><span class="mord mathnormal">L</span></span></span></span>。</p><p>如果 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo mathvariant="normal">∉</mo><mo stretchy="false">[</mo><msub><mi>l</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">x_i\notin [l_i,r_i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel"><span class="mord"><span class="mrel">∈</span></span><span class="mord vbox"><span class="thinbox"><span class="llap"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="inner"><span class="mord"><span class="mord">/</span><span class="mspace" style="margin-right:.05555555555555555em"></span></span></span><span class="fix"></span></span></span></span></span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>，考虑不动的快递员，首先必须在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><mi>L</mi><mo separator="true">,</mo><msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><mi>L</mi><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[x_i-L,x_i+L]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:.8777699999999999em;vertical-align:-.19444em"></span><span class="mord mathnormal">L</span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal">L</span><span class="mclose">]</span></span></span></span> 里，又由于 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub><mo mathvariant="normal">∉</mo><mo stretchy="false">[</mo><msub><mi>l</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">x_i\notin[l_i,r_i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel"><span class="mord"><span class="mrel">∈</span></span><span class="mord vbox"><span class="thinbox"><span class="llap"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="inner"><span class="mord"><span class="mord">/</span><span class="mspace" style="margin-right:.05555555555555555em"></span></span></span><span class="fix"></span></span></span></span></span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span>，故他也必须在<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo stretchy="false">[</mo><msub><mi>l</mi><mi>i</mi></msub><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo stretchy="false">]</mo></mrow><annotation encoding="application/x-tex">[l_i,r_i]</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mopen">[</span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mclose">]</span></span></span></span> 里，而到 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>x</mi><mi>i</mi></msub></mrow><annotation encoding="application/x-tex">x_i</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.58056em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span></span></span></span> 的那个快递员没有什么特殊的要求了。所以<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>l</mi><mi>i</mi></msub><mo>=</mo><mi>max</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>l</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>x</mi><mi>i</mi></msub><mo>−</mo><mi>L</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><msub><mi>r</mi><mi>i</mi></msub><mo>=</mo><mi>min</mi><mo>⁡</mo><mo stretchy="false">(</mo><msub><mi>r</mi><mrow><mi>i</mi><mo>+</mo><mn>1</mn></mrow></msub><mo separator="true">,</mo><msub><mi>x</mi><mi>i</mi></msub><mo>+</mo><mi>L</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">l_i=\max(l_{i+1},x_i-L),r_i=\min(r_{i+1},x_i+L)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:.84444em;vertical-align:-.15em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mop">max</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:.01968em">l</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.311664em"><span style="top:-2.5500000000000003em;margin-left:-.01968em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.208331em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">−</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal">L</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2777777777777778em"></span><span class="mrel">=</span><span class="mspace" style="margin-right:.2777777777777778em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mop">min</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:.02778em">r</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.311664em"><span style="top:-2.5500000000000003em;margin-left:-.02778em;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">i</span><span class="mbin mtight">+</span><span class="mord mtight">1</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.208331em"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:.16666666666666666em"></span><span class="mord"><span class="mord mathnormal">x</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:.31166399999999994em"><span style="top:-2.5500000000000003em;margin-left:0;margin-right:.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">i</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:.15em"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:.2222222222222222em"></span><span class="mbin">+</span><span class="mspace" style="margin-right:.2222222222222222em"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-.25em"></span><span class="mord mathnormal">L</span><span class="mclose">)</span></span></span></span>。</p></div><h2 id="代码"><a class="markdownIt-Anchor" href="# 代码"></a> 代码</h2><div class="story post-story"><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> maxn = <span class="number">100005</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> inf = <span class="number">0x3f3f3f3f</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> n, s1, s2;</span><br><span class="line"><span class="type">int</span> aa[maxn];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> l = -inf, r = inf;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = n; i; --i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(l &lt;= aa[i] &amp;&amp; aa[i] &lt;= r)</span><br><span class="line">            l = aa[i] - x, r = aa[i] + x;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            l = <span class="built_in">max</span>(l, aa[i] - x), r = <span class="built_in">min</span>(r, aa[i] + x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (l &lt;= s1 &amp;&amp; s1 &lt;= r) || (l &lt;= s2 &amp;&amp; s2 &lt;= r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d&quot;</span>, &amp;n, &amp;s1, &amp;s2);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;aa[i]);</span><br><span class="line">    <span class="type">int</span> l = <span class="built_in">abs</span>(s1 - s2), r = inf;</span><br><span class="line">    <span class="keyword">while</span>(l &lt; r)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">check</span>(mid))</span><br><span class="line">            r = mid;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            l = mid + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, l);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div><div class="footer"><div class="copyright"><blockquote><p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p><p>本文永久链接是：<a href="https://pufanyi.github.io/oi-blog/CF875E/">https://pufanyi.github.io/oi-blog/CF875E/</a></p></blockquote></div></div><div class="article-meta" id="bottom"><div class="new-meta-box"><div class="new-meta-item date" itemprop="dateUpdated" datetime="2023-12-25T08:08:27-08:00"><a class="notlink" href="/" onclick="return false;" title="Click me!" ><i class="fas fa-edit fa-fw" aria-hidden="true"></i><p>更新于：Dec 26, 2023</p></a></div><div class="new-meta-item meta-tags"><a class="tag" href="/oi-blog/tags/CodeForces/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>CodeForces</p></a></div><div class="new-meta-item meta-tags"><a class="tag" href="/oi-blog/tags/%E8%B4%AA%E5%BF%83/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>贪心</p></a></div><div class="new-meta-item meta-tags"><a class="tag" href="/oi-blog/tags/%E4%BA%8C%E5%88%86/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>二分</p></a></div><div class="new-meta-item share -mob-share-list"><div class="-mob-share-list share-body"><a class="-mob-share-qq" rel="external nofollow noopener noreferrer noopener" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://pufanyi.github.io/oi-blog/CF875E/&title=CodeForces 875E Delivery Club - PuFanyi's Blog&summary=有两个快递员，分别在s1,s2(0≤s1,s2≤109)s_1, s_2(0\le s_1,s_2\le 10^9)s1​,s2​(0≤s1​,s2​≤109)，现在有n(1≤n≤100000)n(1\le n\le 100000)n(1≤n≤100000)个任务，每个任务xix_ixi​表示要将货物送到xix_ixi​，让任何一个快递员到xix_ixi​都可以。由于快递员之间需要有对讲机联系，请你设计一种方案使得两个快递员之间的最长距离最短。"><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" > </a><a class="-mob-share-qzone" rel="external nofollow noopener noreferrer noopener" target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://pufanyi.github.io/oi-blog/CF875E/&title=CodeForces 875E Delivery Club - PuFanyi's Blog&summary=有两个快递员，分别在s1,s2(0≤s1,s2≤109)s_1, s_2(0\le s_1,s_2\le 10^9)s1​,s2​(0≤s1​,s2​≤109)，现在有n(1≤n≤100000)n(1\le n\le 100000)n(1≤n≤100000)个任务，每个任务xix_ixi​表示要将货物送到xix_ixi​，让任何一个快递员到xix_ixi​都可以。由于快递员之间需要有对讲机联系，请你设计一种方案使得两个快递员之间的最长距离最短。"><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" > </a><a class="-mob-share-weibo" rel="external nofollow noopener noreferrer noopener" target="_blank" href="http://service.weibo.com/share/share.php?url=https://pufanyi.github.io/oi-blog/CF875E/&title=CodeForces 875E Delivery Club - PuFanyi's Blog&summary=有两个快递员，分别在s1,s2(0≤s1,s2≤109)s_1, s_2(0\le s_1,s_2\le 10^9)s1​,s2​(0≤s1​,s2​≤109)，现在有n(1≤n≤100000)n(1\le n\le 100000)n(1≤n≤100000)个任务，每个任务xix_ixi​表示要将货物送到xix_ixi​，让任何一个快递员到xix_ixi​都可以。由于快递员之间需要有对讲机联系，请你设计一种方案使得两个快递员之间的最长距离最短。"><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></a></div></div></div></div><div class="prev-next"><a class="prev" href="/oi-blog/UVa12421/"><p class="title"><i class="fas fa-chevron-left" aria-hidden="true"></i>Uva12421 (Jiandan) Mua (I) - Lexical Analyzer</p><p class="content">一道毒瘤的大模拟。 题目大意 题目大概就是让你写一个叫“Mua语言”解释器，这是第一步，就是把输入代码中的每个“token”（词法单元）都分开来。 一共有六种 t...</p></a><a class="next" href="/oi-blog/CF77C/"><p class="title">CodeForces 77C Beavermuncher-0xFF<i class="fas fa-chevron-right" aria-hidden="true"></i></p><p class="content">原题链接 有一棵树，第 iii 个节点上有 kik_iki​ 只海狸。现在，有一只吃海狸的机器 &quot;Beavermuncher-0xFF&quot; 从根节点 sss 出发，每吃一只海狸...</p></a></div></article><article class="post white-box reveal shadow floatable blur" id="comments"><p ct><i class="fas fa-comments"></i> 评论</p><div id="layoutHelper-comments"></div></article></div><aside id="l_side"><section class="widget toc-wrapper shadow floatable blur desktop mobile" id="toc-div"><header><i class="fas fa-list fa-fw" aria-hidden="true"></i><span class="name">本文目录</span></header><div class="content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E8%A7%A3"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81"><span class="toc-text">代码</span></a></li></ol></div></section></aside><script>window.pdata={},pdata.ispage=!0,pdata.postTitle="CodeForces 875E Delivery Club",pdata.commentPath="",pdata.commentPlaceholder=""</script></div><footer class="footer clearfix"><br><br><div class="aplayer-container"></div><br><div class="social-wrapper"></div><div><p>Blog content follows the <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en">Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License</a></p></div>Use <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/5.0.0.alpha.2" target="_blank" class="codename">Volantis</a> as theme<div class="copyright"><p><a href="/">Copyright © 2017-2021 pufanyi</a></p></div></footer><a id="s-top" class="fas fa-arrow-up fa-fw" href="/" onclick="return!1" title="top"></a></div></div><div><script>/************这个文件存放不需要重载的全局变量和全局函数*********/
+  window.volantis = {}; // volantis 全局变量
+  volantis.dom = {}; // 页面Dom see: /source/js/app.js etc.
+  /******************** volantis.EventListener ********************************/
+  // 事件监听器 see: /source/js/app.js
+  volantis.EventListener = {}
+  // 这里存放pjax切换页面时将被移除的事件监听器
+  volantis.EventListener.list = []
+  //构造方法
+  function volantisEventListener(type, f, ele) {
+    this.type = type
+    this.f = f
+    this.ele = ele
+  }
+  // 移除事件监听器
+  volantis.EventListener.remove = () => {
+    volantis.EventListener.list.forEach(function (i) {
+      i.ele.removeEventListener(i.type, i.f, false)
+    })
+    volantis.EventListener.list = []
+  }
+  /******************** volantis.dom.$ ********************************/
+  // 注：这里没有选择器，也没有forEach一次只处理一个dom，这里重新封装主题常用的dom方法，返回的是dom对象，对象包含了以下方法，同时保留dom的原生API
+  function volantisDom(ele) {
+    if (!ele) ele = document.createElement("div")
+    this.ele = ele;
+    // ==============================================================
+    this.ele.find = (c) => {
+      let q = this.ele.querySelector(c)
+      if (q)
+        return new volantisDom(q)
+    }
+    // ==============================================================
+    this.ele.hasClass = (c) => {
+      return this.ele.className.match(new RegExp('(\\s|^)' + c + '(\\s|$)'));
+    }
+    this.ele.addClass = (c) => {
+      this.ele.classList.add(c);
+      return this.ele
+    }
+    this.ele.removeClass = (c) => {
+      this.ele.classList.remove(c);
+      return this.ele
+    }
+    this.ele.toggleClass = (c) => {
+      if (this.ele.hasClass(c)) {
+        this.ele.removeClass(c)
+      } else {
+        this.ele.addClass(c)
+      }
+      return this.ele
+    }
+    // ==============================================================
+    // 参数 r 为 true 表示pjax切换页面时事件监听器将被移除，false不移除
+    this.ele.on = (c, f, r = 1) => {
+      this.ele.addEventListener(c, f, false)
+      if (r) {
+        volantis.EventListener.list.push(new volantisEventListener(c, f, this.ele))
+      }
+      return this.ele
+    }
+    this.ele.click = (f, r) => {
+      this.ele.on("click", f, r)
+      return this.ele
+    }
+    this.ele.scroll = (f, r) => {
+      this.ele.on("scroll", f, r)
+      return this.ele
+    }
+    // ==============================================================
+    this.ele.html = (c) => {
+      // if(c=== undefined){
+      //   return this.ele.innerHTML
+      // }else{
+      this.ele.innerHTML = c
+      return this.ele
+      // }
+    }
+    // ==============================================================
+    this.ele.hide = (c) => {
+      this.ele.style.display = "none"
+      return this.ele
+    }
+    this.ele.show = (c) => {
+      this.ele.style.display = "block"
+      return this.ele
+    }
+    // ==============================================================
+    return this.ele
+  }
+  volantis.dom.$ = (ele) => {
+    return new volantisDom(ele)
+  }
+  /******************** volantis.dom ********************************/
+  // 页面选择器 将dom对象缓存起来 see: /source/js/app.js etc.
+  volantis.dom.bodyAnchor = volantis.dom.$(document.getElementById("safearea")); // 页面主体
+  volantis.dom.topBtn = volantis.dom.$(document.getElementById('s-top')); // 向上
+  volantis.dom.wrapper = volantis.dom.$(document.getElementById('wrapper')); // 整个导航栏
+  volantis.dom.coverAnchor = volantis.dom.$(document.querySelector('#l_cover .cover-wrapper')); // 1个
+  volantis.dom.switcher = volantis.dom.$(document.querySelector('#l_header .switcher .s-search')); // 搜索按钮   移动端 1个
+  volantis.dom.header = volantis.dom.$(document.getElementById('l_header')); // 移动端导航栏
+  volantis.dom.search = volantis.dom.$(document.querySelector('#l_header .m_search')); // 搜索框 桌面端 移动端 1个
+  volantis.dom.mPhoneList = volantis.dom.$(document.querySelectorAll('#l_header .m-phone .list-v')); //  手机端 子菜单 多个
+  /******************** RunItem ********************************/
+  function RunItem() {
+    this.list = []; // 存放回调函数
+    this.start = () => {
+      for (var i = 0; i < this.list.length; i++) {
+        this.list[i].run();
+      }
+    };
+    this.push = (fn, name, setRequestAnimationFrame = true) => {
+      let myfn = fn
+      if (setRequestAnimationFrame) {
+        myfn = ()=>{
+          volantis.requestAnimationFrame(fn)
+        }
+      }
+      var f = new Item(myfn, name);
+      this.list.push(f);
+    };
+    // 构造一个可以run的对象
+    function Item(fn, name) {
+      // 函数名称
+      this.name = name || fn.name;
+      // run方法
+      this.run = () => {
+        try {
+          fn()
+        } catch (error) {
+          console.log(error);
+        }
+      };
+    }
+  }
+  /******************** Pjax ********************************/
+  // /layout/_plugins/pjax/index.ejs
+  // volantis.pjax.send(callBack[,"callBackName"]) 传入pjax:send回调函数
+  // volantis.pjax.push(callBack[,"callBackName"]) 传入pjax:complete回调函数
+  // volantis.pjax.error(callBack[,"callBackName"]) 传入pjax:error回调函数
+  volantis.pjax = {};
+  volantis.pjax.method = {
+    complete: new RunItem(),
+    error: new RunItem(),
+    send: new RunItem(),
+  };
+  volantis.pjax = {
+    ...volantis.pjax,
+    push: volantis.pjax.method.complete.push,
+    error: volantis.pjax.method.error.push,
+    send: volantis.pjax.method.send.push,
+  };
+  /********************  Dark Mode  ********************************/
+  // /layout/_partial/scripts/darkmode.ejs
+  // volantis.dark.mode 当前模式 dark or light
+  // volantis.dark.toggle() 暗黑模式触发器
+  // volantis.dark.push(callBack[,"callBackName"]) 传入触发器回调函数
+  volantis.dark = {};
+  volantis.dark.method = {
+    toggle: new RunItem(),
+  };
+  volantis.dark = {
+    ...volantis.dark,
+    push: volantis.dark.method.toggle.push,
+  };
+  /********************  Message  ********************************/
+  // /layout/_plugins/message/script.ejs
+  // volantis.message
+  /********************  isMobile  ********************************/
+  // /source/js/app.js
+  // volantis.isMobile
+  // volantis.isMobileOld
+  /********************脚本动态加载函数********************************/
+  // volantis.js(src, cb)  cb 可以传入onload回调函数 或者 JSON对象 例如: volantis.js("src", ()=>{}) 或 volantis.js("src", {defer:true,onload:()=>{}})
+  // volantis.css(src)
+
+  // 返回Promise对象，如下方法同步加载资源，这利于处理文件资源之间的依赖关系，例如：APlayer 需要在 MetingJS 之前加载
+  // (async () => {
+  //     await volantis.js("...theme.plugins.aplayer.js.aplayer...")
+  //     await volantis.js("...theme.plugins.aplayer.js.meting...")
+  // })();
+
+  // 已经加入了setTimeout
+  volantis.js = (src, cb) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var HEAD = document.getElementsByTagName("head")[0] || document.documentElement;
+        var script = document.createElement("script");
+        script.setAttribute("type", "text/javascript");
+        if (cb) {
+          if (JSON.stringify(cb)) {
+            for (let p in cb) {
+              if (p == "onload") {
+                script[p] = () => {
+                  cb[p]()
+                  resolve()
+                }
+              } else {
+                script[p] = cb[p]
+                script.onload = resolve
+              }
+            }
+          } else {
+            script.onload = () => {
+              cb()
+              resolve()
+            };
+          }
+        } else {
+          script.onload = resolve
+        }
+        script.setAttribute("src", src);
+        HEAD.appendChild(script);
+      });
+    });
+  }
+  volantis.css = (src) => {
+    return new Promise(resolve => {
+      setTimeout(function () {
+        var link = document.createElement('link');
+        link.rel = "stylesheet";
+        link.href = src;
+        link.onload = resolve;
+        document.getElementsByTagName("head")[0].appendChild(link);
+      });
+    });
+  }
+  /********************按需加载的插件********************************/
+  // volantis.import.jQuery().then(()=>{})
+  volantis.import = {
+    jQuery: () => {
+      if (typeof jQuery == "undefined") {
+        return volantis.js("https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js")
+      } else {
+        return new Promise(resolve => {
+          resolve()
+        });
+      }
+    }
+  }
+  /********************** requestAnimationFrame ********************************/
+  // 1、requestAnimationFrame 会把每一帧中的所有 DOM 操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
+  // 2、在隐藏或不可见的元素中，requestAnimationFrame 将不会进行重绘或回流，这当然就意味着更少的的 cpu，gpu 和内存使用量。
+  volantis.requestAnimationFrame = (fn)=>{
+    if (!window.requestAnimationFrame) {
+      window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame;
+    }
+    window.requestAnimationFrame(fn)
+  }
+  /******************************************************************************/
+  volantis.layoutHelper = (helper, html, opt)=>{
+    opt = Object.assign({clean:false, pjax:true}, opt)
+    function myhelper(helper, html, clean) {
+      volantis.tempDiv = document.createElement("div");
+      volantis.tempDiv.innerHTML = html;
+      let layoutHelper = document.querySelector("#layoutHelper-"+helper)
+      if (layoutHelper) {
+        if (clean) {
+          layoutHelper.innerHTML = ""
+        }
+        layoutHelper.append(volantis.tempDiv);
+      }
+    }
+    myhelper(helper, html, opt.clean)
+    if (opt.pjax) {
+      volantis.pjax.push(()=>{
+        myhelper(helper, html, opt.clean)
+      },"layoutHelper-"+helper)
+    }
+  }
+  /******************************************************************************/
+  /******************************************************************************/</script><script>volantis.css("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css")</script><script>volantis.message = (title, message, option = {}, done = null) => {
+    if (typeof iziToast == "undefined") {
+      volantis.css('/oi-blog/css/message.css?time=1719083826325')
+      volantis.js('/oi-blog/js/message.js?time=1719083826325', () => {
+        tozashMessage(title, message, option, done);
+      });
+    } else {
+      tozashMessage(title, message, option, done);
+    }
+
+    function tozashMessage(title, message, option, done) {
+      const {
+        icon,
+        time,
+        position,
+        transitionIn,
+        transitionOut,
+        messageColor,
+        titleColor,
+        backgroundColor,
+        zindex
+      } = option;
+      iziToast.show({
+        layout: '2',
+        icon: 'Fontawesome',
+        closeOnEscape: 'true',
+        displayMode: 'replace',
+        transitionIn: transitionIn || 'bounceInLeft',
+        transitionOut: transitionOut || 'fadeOutRight',
+        messageColor: messageColor || 'var(--color-text)',
+        titleColor: titleColor || 'var(--color-text)',
+        backgroundColor: backgroundColor || 'var(--color-card)',
+        zindex: zindex || '2147483647',
+        icon: icon || 'fas fa-info-circle light-blue',
+        timeout: time || '5000',
+        position: position || 'topRight',
+        title: title,
+        message: message,
+        onClosed: () => {
+          if(done) done();
+        },
+      });
+    }
+  };
+
+  volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
+    if (typeof iziToast == "undefined") {
+      volantis.css('/oi-blog/css/message.css?time=1719083826325')
+      volantis.js('/oi-blog/js/message.js?time=1719083826325', () => {
+        tozashQuestion(title, message, option, success, cancel, done);
+      });
+    } else {
+      tozashQuestion(title, message, option, success, cancel, done);
+    }
+
+    function tozashQuestion(title, message, option, success, cancel, done) {
+      const {
+        icon,
+        time,
+        position,
+        transitionIn,
+        transitionOut,
+        messageColor,
+        titleColor,
+        backgroundColor,
+        zindex
+      } = option;
+      iziToast.question({ 
+        id: 'question',
+        icon: 'Fontawesome',
+        close: false,
+        overlay: true,
+        displayMode: 'once',
+        position: 'center',
+        messageColor: messageColor || 'var(--color-text)',
+        titleColor: titleColor || 'var(--color-text)',
+        backgroundColor: backgroundColor || 'var(--color-card)',
+        zindex: zindex || '2147483647',
+        icon: icon || 'fas fa-question-circle light-blue',
+        timeout: time || '20000',
+        title: title,
+        message: message,
+        buttons: [
+          ['<button><b>是</b></button>', (instance, toast) => {
+            instance.hide({ transitionOut: transitionOut || 'fadeOut' }, toast, 'button');
+            if(success) success(instance, toast)
+          }],
+          ['<button><b>否</b></button>', (instance, toast) => {
+            instance.hide({ transitionOut: transitionOut || 'fadeOut' }, toast, 'button');
+            if(cancel) cancel(instance, toast)
+          }]
+        ],
+        onClosed: (instance, toast, closedBy) => {
+          if(done) done(instance, toast, closedBy);
+        }
+      });
+    }
+  }
+
+  volantis.messageCopyright = {
+    enable: 'true' === 'true' ? true : false,
+    title: '知识共享许可协议',
+    message: '请遵守 CC BY-NC-SA 4.0 协议。',
+    icon: 'far fa-copyright light-blue'
+  }
+
+  volantis.messageRightMenu = {
+    enable: 'true' === 'true' ? true : false,
+  }
+
+  if(volantis.messageCopyright.enable) {
+    document.body.oncopy = function(){
+      volantis.message(volantis.messageCopyright.title, volantis.messageCopyright.message, {
+        icon: volantis.messageCopyright.icon
+      });
+    }; 
+  }</script><div id="rightmenu-wrapper"><ul class="list-v rightmenu" id="rightmenu-content"><li class="navigation menuNavigation-Content"><a class="nav icon-only fix-cursor-default" onclick="history.back()"><i class="fa fa-arrow-left fa-fw"></i></a> <a class="nav icon-only fix-cursor-default" onclick="history.forward()"><i class="fa fa-arrow-right fa-fw"></i></a> <a class="nav icon-only fix-cursor-default" onclick="window.location.reload()"><i class="fa fa-redo fa-fw"></i></a> <a class="nav icon-only fix-cursor-default" href="/"><i class="fa fa-home fa-fw"></i></a></li><li class="option menuOption-Content"><span class="vlts-menu opt fix-cursor-default menu-Option" data-fn-type="copyText"><i class="fa fa-copy fa-fw"></i> Copy Text </span><span class="vlts-menu opt fix-cursor-default menu-Option" data-fn-type="copyPaste"><i class="fa fa-paste fa-fw mR12"></i> 粘贴文本 </span><span class="vlts-menu opt fix-cursor-default menu-Option" data-fn-type="copySelect"><i class="fa fa-object-ungroup fa-fw mR12"></i> 全选文本 </span><span class="vlts-menu opt fix-cursor-default menu-Option" data-fn-type="copyCut"><i class="fa fa-cut fa-fw mR12"></i> 剪切文本 </span><span class="vlts-menu opt fix-cursor-default menu-Option" data-fn-type="openTab"><i class="fa fa-external-link-square-alt fa-fw mR12"></i> Open Link in New Tab </span><span class="vlts-menu opt fix-cursor-default menu-Option" data-fn-type="copySrc"><i class="fa fa-image fa-fw mR12"></i> Copy Image Link </span><span class="vlts-menu opt fix-cursor-default menu-Option" data-fn-type="copyImg"><i class="fa fa-images fa-fw mR12"></i> 复制图片文件</span></li><hr class="menuLoad-Content"><li class="option menuOption-Content"><span class="vlts-menu opt fix-cursor-default" id="printHtml"><i class="fa fa-print fa-fw"></i> 打印页面</span></li><li class="option menuOption-Content"><span class="vlts-menu opt fix-cursor-default toggle-mode-btn" id="menuDarkBtn"><i class="fa fa-moon fa-fw"></i> 暗黑模式</span></li><li class="option menuOption-Content"><span class="vlts-menu opt fix-cursor-default" id="readingModel"><i class="fa fa-book-open fa-fw"></i> 阅读模式</span></li></ul></div><script>volantis.rightMenu={},volantis.rightMenu.faicon="fa",volantis.rightMenu.defaultStyles=!0,volantis.APlayerController={},volantis.js("/oi-blog/js/rightMenu.js?time=1719083826325")</script><script>const rootElement = document.documentElement;
+const darkModeStorageKey = "color-scheme";
+const rootElementDarkModeAttributeName = "color-scheme";
+const setLS = (k, v) => {
+    localStorage.setItem(k, v);
+};
+const removeLS = (k) => {
+    localStorage.removeItem(k);
+};
+const getLS = (k) => {
+    return localStorage.getItem(k);
+};
+const getModeFromCSSMediaQuery = () => {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches
+    ? "dark"
+    : "light";
+};
+const resetRootDarkModeAttributeAndLS = () => {
+  rootElement.removeAttribute(rootElementDarkModeAttributeName);
+  removeLS(darkModeStorageKey);
+};
+const validColorModeKeys = {
+  dark: true,
+  light: true,
+};
+const applyCustomDarkModeSettings = (mode) => {
+  const currentSetting = mode || getLS(darkModeStorageKey);
+  getCustomDarkMode();
+  if (currentSetting === getModeFromCSSMediaQuery()) {
+    resetRootDarkModeAttributeAndLS();
+  } else if (validColorModeKeys[currentSetting]) {
+    rootElement.setAttribute(rootElementDarkModeAttributeName, currentSetting);
+  } else {
+    resetRootDarkModeAttributeAndLS();
+  }
+};
+const invertDarkModeObj = {
+  dark: "light",
+  light: "dark",
+};
+/**
+ * get target mode
+ */
+ const getCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  if(currentSetting=="dark"){
+    volantis.dark.mode="light";
+  }else{
+    volantis.dark.mode="dark";
+  }
+  // console.log(volantis.dark.mode)
+};
+const toggleCustomDarkMode = () => {
+  let currentSetting = getLS(darkModeStorageKey);
+  if (validColorModeKeys[currentSetting]) {
+    currentSetting = invertDarkModeObj[currentSetting];
+  } else if (currentSetting === null) {
+    currentSetting = invertDarkModeObj[getModeFromCSSMediaQuery()];
+  } else {
+    return;
+  }
+  setLS(darkModeStorageKey, currentSetting);
+  return currentSetting;
+};
+/**
+ * 暗黑模式触发器
+ */
+volantis.dark.toggle=()=>{
+  const mode = toggleCustomDarkMode();
+  applyCustomDarkModeSettings(mode);
+  // 使用 volantis.dark.push 方法传入volantis.dark.toggle回调函数 参见layout/_partial/scripts/global.ejs
+  volantis.dark.method.toggle.start();
+}
+/**
+ * bind event for toggle button
+ */
+
+function bindToggleButton() {
+  var btn= document.querySelectorAll("#wrapper .toggle-mode-btn,#rightmenu-wrapper .toggle-mode-btn")
+  btn.forEach(function (e) {
+    volantis.dom.$(e).on('click',volantis.dark.toggle);
+  })
+}
+applyCustomDarkModeSettings();
+document.addEventListener("DOMContentLoaded", ()=>{
+  volantis.requestAnimationFrame(bindToggleButton)
+});
+volantis.pjax.push(bindToggleButton);</script><script>function loadIssuesJS() {
+    
+      const sites_api = document.getElementById('sites-api');
+      if (sites_api != undefined && typeof SitesJS === 'undefined') {
+        volantis.js("/oi-blog/js/plugins/sites.js?time=1719083826325")
+      }
+    
+    
+      const friends_api = document.getElementById('friends-api');
+      if (friends_api != undefined && typeof FriendsJS === 'undefined') {
+        volantis.js("/oi-blog/js/plugins/friends.js?time=1719083826325")
+      }
+    
+    
+      const contributors_api = document.getElementById('contributors-api');
+      if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
+        volantis.js("/oi-blog/js/plugins/contributors.js?time=1719083826325")
+      }
+    
+  };
+  loadIssuesJS()
+  volantis.pjax.push(()=>{
+    loadIssuesJS();
+  })</script><script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script><script>window.lazyLoadOptions={elements_selector:".lazyload",threshold:0},window.addEventListener("LazyLoad::Initialized",function(n){window.lazyLoadInstance=n.detail.instance},!1),document.addEventListener("DOMContentLoaded",function(){lazyLoadInstance.update()}),document.addEventListener("pjax:complete",function(){lazyLoadInstance.update()})</script><script>window.FPConfig={delay:0,ignoreKeywords:["#"],maxRPS:6,hoverDelay:0}</script><script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script><script>volantis.layoutHelper("comments",`<div id="giscus_container"></div>`)
+
+  volantis.giscus = {};
+
+  function check_giscus() {
+    if (volantis.dark.mode === "dark") {
+      volantis.giscus.Theme = 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/dark.css';
+    } else {
+      volantis.giscus.Theme = 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/light.css';
+    }
+
+    return document.getElementById("giscus_container");
+  }
+
+  function pjax_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+    let cfg = {"theme":{"light":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/light.css","dark":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/css/giscus/dark.css"},"repo":"pufanyi/oi-blog","repo-id":"MDEwOlJlcG9zaXRvcnkyNDI0NTM0Njc=","category":"General","category-id":"DIC_kwDODnOL284CQC96","mapping":"title","reactions-enabled":"1","emit-metadata":"0"}
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://giscus.app/client.js');
+    Object.keys(cfg).forEach(k=>{
+      if (k != "theme") {
+        script.setAttribute('data-'+k, cfg[k]);
+      }
+    })
+    script.setAttribute('data-theme', volantis.giscus.Theme);
+    script.setAttribute('crossorigin', "anonymous");
+    HEAD.appendChild(script);
+  }
+
+  function dark_giscus() {
+    const HEAD = check_giscus();
+    if (!HEAD) return;
+
+    const message = {
+      setConfig: {
+        theme: volantis.giscus.Theme
+      }
+    };
+    const giscusIframe = document.querySelector('iframe.giscus-frame');
+    giscusIframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+  }
+  pjax_giscus();
+  volantis.pjax.push(pjax_giscus);
+  volantis.dark.push(dark_giscus);</script><script src="/oi-blog/oi-blog/js/app.js?time=1719083826325.js"></script><script>const SearchServiceDataPathRoot = ("/oi-blog/" || "/").endsWith("/")
+    ? "/oi-blog/" || "/"
+    : "/oi-blog//" || "/";
+  const SearchServiceDataPath = SearchServiceDataPathRoot + "content.json";
+
+  function loadSearchScript() {
+    // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
+    return volantis.js("/oi-blog/js/search/hexo.js?time=1719083826325");
+  }
+
+  function loadSearchService() {
+    loadSearchScript();
+    document.querySelectorAll(".input.u-search-input").forEach((e) => {
+      e.removeEventListener("focus", loadSearchService, false);
+    });
+  }
+
+  // 打开并搜索 字符串 s
+  function OpenSearch(s) {
+    loadSearchScript().then(() => {
+      SearchService.setQueryText(s);
+      SearchService.search();
+    });
+  }
+
+  // 访问含有 ?s=xxx  的链接时打开搜索 // 与搜索引擎 structured data 相关: /scripts/helpers/structured-data/lib/config.js
+  if (window.location.search && /^\?s=/g.test(window.location.search)) {
+    let queryText = decodeURI(window.location.search)
+      .replace(/\ /g, "-")
+      .replace(/^\?s=/g, "");
+    OpenSearch(queryText);
+  }
+
+  // 搜索输入框获取焦点时加载搜索
+  document.querySelectorAll(".input.u-search-input").forEach((e) => {
+    e.addEventListener("focus", loadSearchService, false);
+  });</script><script>function pjax_highlightjs_copyCode(){(document.querySelector(".highlight .code pre")||document.querySelector(".article pre code"))&&VolantisApp.copyCode(".highlight .code pre, .article pre code")}volantis.css("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.1.0/build/styles/default.min.css"),volantis.requestAnimationFrame(pjax_highlightjs_copyCode),volantis.pjax.push(pjax_highlightjs_copyCode)</script><pjax></pjax><script>function listennSidebarTOC() {
+    const navItems = document.querySelectorAll(".toc li");
+    if (!navItems.length) return;
+    const sections = [...navItems].map((element) => {
+      const link = element.querySelector(".toc-link");
+      const target = document.getElementById(
+        decodeURI(link.getAttribute("href")).replace("#", "")
+      );
+      link.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.scrollTo({
+          top: target.offsetTop + document.getElementById("safearea").offsetTop + 5,
+          
+          behavior: "smooth"
+          
+        });
+      });
+      return target;
+    });
+
+    function activateNavByIndex(target) {
+      if (target.classList.contains("active-current")) return;
+
+      document.querySelectorAll(".toc .active").forEach((element) => {
+        element.classList.remove("active", "active-current");
+      });
+      target.classList.add("active", "active-current");
+      let parent = target.parentNode;
+      while (!parent.matches(".toc")) {
+        if (parent.matches("li")) parent.classList.add("active");
+        parent = parent.parentNode;
+      }
+    }
+
+    function findIndex(entries) {
+      let index = 0;
+      let entry = entries[index];
+      if (entry.boundingClientRect.top > 0) {
+        index = sections.indexOf(entry.target);
+        return index === 0 ? 0 : index - 1;
+      }
+      for (; index < entries.length; index++) {
+        if (entries[index].boundingClientRect.top <= 0) {
+          entry = entries[index];
+        } else {
+          return sections.indexOf(entry.target);
+        }
+      }
+      return sections.indexOf(entry.target);
+    }
+
+    function createIntersectionObserver(marginTop) {
+      marginTop = Math.floor(marginTop + 10000);
+      let intersectionObserver = new IntersectionObserver(
+        (entries, observe) => {
+          let scrollHeight = document.documentElement.scrollHeight + document.getElementById("safearea").offsetTop +
+          5;
+          if (scrollHeight > marginTop) {
+            observe.disconnect();
+            createIntersectionObserver(scrollHeight);
+            return;
+          }
+          let index = findIndex(entries);
+          activateNavByIndex(navItems[index]);
+        }, {
+          rootMargin: marginTop + "px 0px -100% 0px",
+          threshold: 0,
+        }
+      );
+      sections.forEach((element) => {
+        element && intersectionObserver.observe(element);
+      });
+    }
+
+    createIntersectionObserver(document.documentElement.scrollHeight);
+  }
+
+  document.addEventListener("DOMContentLoaded", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });
+  document.addEventListener("pjax:success", ()=>{
+    volantis.requestAnimationFrame(listennSidebarTOC)
+  });</script><script>// https://web.dev/content-visibility/
+  // https://www.caniuse.com/?search=content-visibility
+  // https://infrequently.org/2020/12/content-visibility-scroll-fix/
+  // https://infrequently.org/2020/12/resize-resilient-deferred-rendering/
+
+  // 备注 目前已知的问题:
+  // 动态修改导致的内容高度变化(例如评论框异步渲染的外部盒子高度变化) 无法提前获知, 进而导致的首次滚动条跳动无法去除 (wontfix) 事实上不使用 content-visibility 也会有跳动, 不过是比使用 content-visibility 跳动提前
+  // scrollreveal 插件潜在问题 目前尚不明确
+
+  let eqIsh = (a, b, fuzz = 2) => {
+    return Math.abs(a - b) <= fuzz;
+  };
+
+  let rectNotEQ = (a, b) => {
+    return !eqIsh(a.width, b.width) || !eqIsh(a.height, b.height);
+  };
+
+  // Keep a map of elements and the dimensions of
+  // their place-holders, re-setting the element's
+  // intrinsic size when we get updated measurements
+  // from observers.
+  let spaced = new WeakMap();
+
+  // Only call this when known cheap, post layout
+  let reserveSpace = (el, rect = el.getClientBoundingRect()) => {
+    let old = spaced.get(el);
+    // Set intrinsic size to prevent jumping on un-painting:
+    //    https://drafts.csswg.org/css-sizing-4/#intrinsic-size-override
+    if (!old || rectNotEQ(old, rect)) {
+      spaced.set(el, rect);
+      el.style["contain-intrinsic-size"] = `${rect.width}px ${rect.height}px`;
+    }
+  };
+
+  let iObs = new IntersectionObserver(
+    (entries, o) => {
+      entries.forEach((entry) => {
+        // We don't care if the element is intersecting or
+        // has been laid out as our page structure ensures
+        // they'll get the right width.
+        reserveSpace(entry.target, entry.boundingClientRect);
+      });
+    },
+    { rootMargin: "500px 0px 500px 0px" }
+  );
+
+  let rObs = new ResizeObserver((entries, o) => {
+    entries.forEach((entry) => {
+      reserveSpace(entry.target, entry.contentRect);
+    });
+  });
+
+  let resizeResilientDeferredRendering = (Selector) => {
+    let articles = document.querySelectorAll(Selector);
+
+    if (articles.length) {
+      articles.forEach((el) => {
+        iObs.observe(el);
+        rObs.observe(el);
+      });
+
+      // Workaround for Chrome bug, part 2.
+      //
+      // Re-enable browser management of rendering for the
+      // first article after the first paint. Double-rAF
+      // to ensure we get called after a layout.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          articles[0].style["content-visibility"] = "auto";
+        });
+      });
+    }
+  };
+
+  let contentVisibilityScrollFix = () => {
+    if (!("content-visibility" in document.documentElement.style)) {
+      return;
+    }
+    resizeResilientDeferredRendering(".post-story");
+    resizeResilientDeferredRendering("article");
+    resizeResilientDeferredRendering(".post-wrapper");
+  };
+  contentVisibilityScrollFix();
+  volantis.pjax.push(contentVisibilityScrollFix);</script><script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"PuFanyi's Blog","url":"https://pufanyi.github.io/oi-blog/oi-blog/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"sameAs":["https://github.com/volantis-x"]},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://pufanyi.github.io/oi-blog/oi-blog/","name":"PuFanyi's Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://pufanyi.github.io/oi-blog/oi-blog/categories/题解/","name":"题解"}},{"@type":"ListItem","position":3,"item":{"@id":"https://pufanyi.github.io/oi-blog/oi-blog/CF875E/","name":"CodeForces 875E Delivery Club"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"CodeForces 875E Delivery Club","description":"有两个快递员，分别在s1,s2(0≤s1,s2≤109)s_1, s_2(0\\le s_1,s_2\\le 10^9)s1​,s2​(0≤s1​,s2​≤109)，现在有n(1≤n≤100000)n(1\\le n\\le 100000)n(1≤n≤100000)个任务，每个任务xix_ixi​表示要将货物送到xix_ixi​，让任何一个快递员到xix_ixi​都可以。由于快递员之间需要有对讲机联系，请你设计一种方案使得两个快递员之间的最长距离最短。","datePublished":"2019-01-11T16:00:00.000Z","dateModified":"2023-12-25T16:08:27.883Z","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"https://pufanyi.github.io/oi-blog/CF875E/"},"author":{"@type":"Person"},"publisher":{"@type":"Organization","name":"PuFanyi's Blog","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://pufanyi.github.io/oi-blog/CF875E/","wordCount":224,"articleSection":"题解","keywords":"CodeForces,贪心,二分"}]</script><!-- more --><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js" integrity="sha384-X/XCfMm41VSsqRNQgDerQczD69XqmjOOOwYQvr/uuC+j4OPoNhVgjdGFwhvN02Ja" crossorigin="anonymous"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous" onload="renderMathInElement(document.body)"></script></div></body></html>

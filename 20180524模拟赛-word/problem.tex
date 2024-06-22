@@ -1,0 +1,102 @@
+\documentclass[hyperref,UTF8,12pt,a4paper]{ctexart}
+
+\usepackage{amsmath,multirow,makecell,algorithm}
+
+\usepackage{array}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+\usepackage{geometry}
+\geometry{left=1in,right=1in,top=1in,bottom=1in}
+
+\usepackage{titling}
+\pretitle{\begin{center}\fontsize{30pt}{30pt}\selectfont}
+\posttitle{\end{center}}
+
+\usepackage{algpseudocode, graphicx}
+
+\title{Word}
+\author{}
+\date{}
+
+\begin{document}
+
+\section{Word}
+
+\subsection{题目描述}
+
+有一个星球要创造新的单词，单词有一些条件：
+
+\begin{itemize}
+\item [1)]
+字母集有$p$个元音和$q$个辅音，单词由字母构成。
+\item [2)]
+每个单词最多有$n$个元音和$n$个辅音（同一元音或辅音可重复使用）。
+\item [3)]
+每个单词中元音总是出现在所有辅音之前，可以没有元音或没有辅音，这里的“所有”指的是“全部”，即如果`a`是元音，`b`是辅音，那么`aabb`是合法的，而`abab`是不合法的。
+\item [4)]
+每个单词至少有一个字母。
+\item [5)]
+可以在字母上标记重音。元音中最多标记一个，辅音中也最多标记一个，一个单词中最多标记两个字母为重音。
+\item [6)]
+如果两个单词字母、字母顺序或者重音不同就认为这两个单词不同。
+\end{itemize}
+
+他们想要知道一共能创造多少不同的单词，由于答案可能很大，所以只要输出答案`mod M`后的值。
+
+\subsection{输入输出格式}
+
+\subsubsection{输入格式}
+
+输入文件`word.in`包含4个正整数$p,q,n,M$
+
+\subsubsection{输出格式}
+
+输出文件`word.out`包含一个非负整数表示能创造出的新单词`mod M`后的值。
+
+\subsection{样例}
+
+\subsubsection{样例输入1}
+
+\begin{verbatim}
+1 1 1 9
+\end{verbatim}
+
+\subsubsection{样例输出1}
+
+\begin{verbatim}
+8
+\end{verbatim}
+
+\subsubsection{样例输入2}
+
+\begin{verbatim}
+2 3 2 1000
+\end{verbatim}
+
+\subsubsection{样例输出2}
+
+\begin{verbatim}
+577
+\end{verbatim}
+
+\subsubsection{样例输入3}
+
+\begin{verbatim}
+1 1 1000000000 1000000000 
+\end{verbatim}
+
+\subsubsection{样例输出3}
+
+\begin{verbatim}
+0 
+\end{verbatim}
+
+\subsection{数据规模}
+
+对于 $30\%$的数据，$p, q, n\le 7$
+
+对于$60\%$的数据，$n \le 100000$
+
+对于$100\%$的数据，$p, q, n, M ≤ 10^9$
+
+\end{document}
